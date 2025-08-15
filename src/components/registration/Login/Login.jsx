@@ -1,7 +1,28 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../auth/AuthProvider";
 
 const Login = () => {
+  const { user, loginUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+    // user login
+    loginUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate("/dashboard");
+      })
+      .catch((err) => console.log(err.message));
+  };
+
   return (
     <section className=" min-h-screen flex flex-col justify-center py-5 pb-10">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 w-full md:w-3/5">
@@ -11,7 +32,7 @@ const Login = () => {
               Lo<span className="text-[#00DAC6]">gi</span>
               <span className="text-[#008966]">n</span>
             </h1>
-            <form className="space-y-4 md:space-y-6">
+            <form className="space-y-4 md:space-y-6" onSubmit={handleLogin}>
               <div>
                 <label className="block mb-2 text-[#575454] text-sm font-medium">
                   Email Address

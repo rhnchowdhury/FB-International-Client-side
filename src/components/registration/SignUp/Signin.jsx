@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../auth/AuthProvider";
 
 const Signin = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, email, password);
+
+    // create a user
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((err) => console.log(err.message));
+  };
+
   return (
     <section className=" min-h-screen flex flex-col justify-center py-5 pb-10">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 w-full md:w-3/5">
@@ -16,7 +36,7 @@ const Signin = () => {
               Regis<span className="text-[#00DAC6]">tra</span>
               <span className="text-[#008966]">tion</span>
             </h1>
-            <form className="space-y-4 md:space-y-6">
+            <form className="space-y-4 md:space-y-6" onSubmit={handleRegister}>
               <div>
                 <label className="block mb-2 text-[#575454] text-sm font-medium ">
                   Full Name
