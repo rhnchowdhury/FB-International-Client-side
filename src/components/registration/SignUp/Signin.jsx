@@ -1,0 +1,78 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+const Signin = () => {
+  return (
+    <section className=" min-h-screen flex flex-col justify-center py-5 pb-10">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 w-full md:w-3/5">
+        <div>
+          <h1 className="lg:text-5xl uppercase font-bold text-[#D8FFFB] mb-8 mt-4">
+            Expense <span className="text-[#00DAC6]">Tracker</span>
+          </h1>
+        </div>
+        <div className="w-full bg-black rounded-lg shadow-lg dark:border md:mt-0 sm:max-w-md xl:p-0">
+          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <h1 className="text-xl font-bold text-center leading-tight tracking-tight  text-[#92E9DC] md:text-2xl">
+              Regis<span className="text-[#00DAC6]">tra</span>
+              <span className="text-[#008966]">tion</span>
+            </h1>
+            <form className="space-y-4 md:space-y-6">
+              <div>
+                <label className="block mb-2 text-[#575454] text-sm font-medium ">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  className="bg-[#3C3C3C] border border-[#3C3C3C] text-[#D8FFFB] focus:outline focus:outline-[#3C3C3C] sm:text-sm rounded-lg block w-full p-2.5"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-[#575454] text-sm font-medium">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  className="bg-[#3C3C3C] border border-[#3C3C3C] text-[#D8FFFB] focus:outline focus:outline-[#3C3C3C] sm:text-sm rounded-lg block w-full p-2.5"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block mb-2 text-[#575454] text-sm font-medium ">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  className="bg-[#3C3C3C] border border-[#3C3C3C] text-[#D8FFFB] focus:outline focus:outline-[#3C3C3C] sm:text-sm rounded-lg block w-full p-2.5"
+                  required
+                />
+              </div>
+
+              <div className="flex justify-center">
+                <p className="text-sm font-light  text-[#bbafaf] ">
+                  Already have registered?
+                  <Link
+                    to="/login"
+                    className="font-medium text-primary-600 hover:underline ml-2">
+                    Log In
+                  </Link>
+                </p>
+              </div>
+              <button
+                type="submit"
+                className="w-full btn border-[#00DAC6] bg-[#00DAC6] font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                Sign Up
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Signin;
