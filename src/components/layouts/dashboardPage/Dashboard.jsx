@@ -1,5 +1,3 @@
-import React from "react";
-
 const Dashboard = () => {
   return (
     <div>
@@ -9,9 +7,7 @@ const Dashboard = () => {
           <div className="text-base lg:text-xl font-semibold">
             Monthly Income
           </div>
-          <div className="text-2xl lg:text-5xl font-bold my-2">
-            {/* $ {userData.income} */}200
-          </div>
+          <div className="text-2xl lg:text-5xl font-bold my-2">BDT</div>
         </div>
         <div className="w-full sm:w-1/3 bg-[#1B1B1B] rounded-lg p-5 ">
           <div className="text-base lg:text-xl font-semibold">

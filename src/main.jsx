@@ -7,8 +7,8 @@ import Signin from "./components/registration/SignUp/Signin.jsx";
 import Login from "./components/registration/Login/Login.jsx";
 import AuthProvider from "./components/auth/AuthProvider.jsx";
 import DashboardLayout from "./components/layouts/dashboard/DashboardLayout.jsx";
-import Income from "./components/pages/income/Income.jsx";
 import Dashboard from "./components/layouts/dashboardPage/Dashboard.jsx";
+import Expense from "./components/pages/Expenses/Expense.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,8 +35,8 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "/dashboard/income",
-        element: <Income />,
+        path: "/dashboard/expenses",
+        element: <Expense />,
       },
     ],
   },

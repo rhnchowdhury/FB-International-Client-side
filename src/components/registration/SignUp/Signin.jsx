@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthProvider";
 
 const Signin = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -11,13 +12,37 @@ const Signin = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password);
+    const users = { name, email, password };
 
     // create a user
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        form.reset();
+
+        // update profile add name
+        const profile = {
+          displayName: name,
+        };
+        updateUser(profile).then(() => {
+          console.log("Name is added");
+        });
+
+        navigate("/dashboard");
+      })
+      .catch((err) => console.log(err.message));
+
+    //  users save in database
+
+    fetch("http://localhost:4000/users", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(users),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
       })
       .catch((err) => console.log(err.message));
   };
