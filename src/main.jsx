@@ -10,6 +10,7 @@ import DashboardLayout from "./components/layouts/dashboard/DashboardLayout.jsx"
 import Dashboard from "./components/layouts/dashboardPage/Dashboard.jsx";
 import Expense from "./components/pages/Expenses/Expense.jsx";
 import ExpenseHistory from "./components/pages/Expenses/ExpenseHistory.jsx";
+import ExpenseEdit from "./components/pages/updates/ExpenseEdit.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,12 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/expenses/history",
         element: <ExpenseHistory />,
+      },
+      {
+        path: "/dashboard/expenses/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/expense/${params.id}`),
+        element: <ExpenseEdit />,
       },
     ],
   },
