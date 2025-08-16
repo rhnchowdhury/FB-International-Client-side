@@ -7,6 +7,19 @@ const Expense = () => {
     const select = form.select.value;
     const date = form.date.value;
     console.log(title, amount, select, date);
+    const expenses = { title, amount, select, date };
+
+    fetch("http://localhost:4000/expense", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(expenses),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        form.reset();
+      })
+      .catch((err) => console.log(err.message));
   };
 
   return (

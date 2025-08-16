@@ -1,4 +1,4 @@
-import { FaCalendar, FaHome, FaMoneyCheck } from "react-icons/fa";
+import { FaCalendar, FaHistory, FaHome, FaMoneyCheck } from "react-icons/fa";
 import { IoLogOut } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { IoMenu } from "react-icons/io5";
@@ -7,7 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../auth/AuthProvider";
 import { auth } from "../../firebase/firebase.config";
-import { GiMoneyStack } from "react-icons/gi";
 
 const Sidebar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -82,13 +81,20 @@ const Sidebar = () => {
                     <span className="ms-3">Home</span>
                   </Link>
                 </li>
-
                 <li>
                   <Link
                     to="/dashboard/expenses"
                     className="flex items-center p-2 text-[#D8FFFB]  rounded-sm hover:bg-[#3C3C3C] hover:text-[#00DAC6] ">
                     <FaMoneyCheck className="w-6 h-6" />
                     <span className="ms-3">My Expenses</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/expenses/history"
+                    className="flex items-center p-2 text-[#D8FFFB]  rounded-sm hover:bg-[#3C3C3C] hover:text-[#00DAC6] ">
+                    <FaHistory className="w-6 h-6" />
+                    <span className="ms-3">Expenses History</span>
                   </Link>
                 </li>
                 <li>

@@ -9,6 +9,7 @@ import AuthProvider from "./components/auth/AuthProvider.jsx";
 import DashboardLayout from "./components/layouts/dashboard/DashboardLayout.jsx";
 import Dashboard from "./components/layouts/dashboardPage/Dashboard.jsx";
 import Expense from "./components/pages/Expenses/Expense.jsx";
+import ExpenseHistory from "./components/pages/Expenses/ExpenseHistory.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/expenses",
         element: <Expense />,
+      },
+      {
+        path: "/dashboard/expenses/history",
+        element: <ExpenseHistory />,
       },
     ],
   },
