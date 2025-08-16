@@ -1,5 +1,5 @@
 # Features
-Landing Page:
+- Landing Page:
 A welcoming page with links to the Login and Register pages.
 
 Login Page:
