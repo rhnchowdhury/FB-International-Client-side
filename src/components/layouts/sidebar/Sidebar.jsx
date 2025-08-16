@@ -98,12 +98,12 @@ const Sidebar = () => {
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="/calendar"
+                  <Link
+                    to="/dashboard/calender"
                     className="flex items-center p-2 text-[#D8FFFB]  rounded-sm hover:bg-[#3C3C3C] hover:text-[#00DAC6] ">
                     <FaCalendar className="w-6 h-6" />
                     <span className="ms-3">Calendar</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <button

@@ -39,6 +39,7 @@ const Expense = () => {
                 <input
                   type="text"
                   name="title"
+                  minLength={3}
                   className="bg-[#3C3C3C] border border-[#3C3C3C] text-[#D8FFFB] focus:outline focus:outline-[#3C3C3C] sm:text-sm rounded-lg block w-full p-2.5"
                   required
                 />
@@ -50,6 +51,7 @@ const Expense = () => {
                 <input
                   type="number"
                   name="amount"
+                  minLength={1}
                   className="bg-[#3C3C3C] border border-[#3C3C3C] text-[#D8FFFB] focus:outline focus:outline-[#3C3C3C] sm:text-sm rounded-lg block w-full p-2.5"
                   required
                 />
